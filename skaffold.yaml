@@ -1,0 +1,12 @@
+apiVersion: skaffold/v1beta2
+kind: Config
+build:
+        artifacts:
+        - image: ryanvade/servicea
+          context: servicea
+        - image: ryanvade/serviceb
+          context: serviceb
+deploy:
+        kubectl:
+                manifests:
+                        - ./kubernetes-manifests/**.yaml
