@@ -31,3 +31,17 @@ spec:
   - name: http
     port: 8088
     targetPort: 8088
+---
+apiVersion: "security.istio.io/v1beta1"
+kind: "AuthorizationPolicy"
+metadata:
+  name: "serviceb-public-access"
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: serviceb
+  rules:
+  - to:
+    - operation:
+        methods: ["GET"]

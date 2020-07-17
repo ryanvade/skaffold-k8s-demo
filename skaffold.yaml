@@ -6,6 +6,8 @@ build:
           context: servicea
         - image: ryanvade/serviceb
           context: serviceb
+        - image: ryanvade/servicec
+          context: servicec
 deploy:
         kubectl:
                 manifests:

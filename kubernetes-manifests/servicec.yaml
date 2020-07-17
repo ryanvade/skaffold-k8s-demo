@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: servicea
+  name: servicec
 spec:
   selector:
     matchLabels:
-      app: servicea
+      app: servicec
   template:
     metadata:
       labels:
-        app: servicea
+        app: servicec
     spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: ryanvade/servicea
+        image: ryanvade/servicec
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 3000
@@ -22,11 +22,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: servicea
+  name: servicec
 spec:
   type: ClusterIP
   selector:
-    app: servicea
+    app: servicec
   ports:
   - name: http
     port: 3000
@@ -35,13 +35,16 @@ spec:
 apiVersion: "security.istio.io/v1beta1"
 kind: "AuthorizationPolicy"
 metadata:
-  name: "servicea-public-access"
+  name: "servicec-internal-access"
   namespace: default
 spec:
   selector:
     matchLabels:
-      app: servicea
+      app: servicec
   rules:
+  - from:
+    - source:
+        principals: ["servicea"]
   - to:
     - operation:
         methods: ["GET"]
