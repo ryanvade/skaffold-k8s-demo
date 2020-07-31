@@ -1,0 +1,18 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: skaffold-demo
+  version: "1.17"
+  region: us-east-1
+
+managedNodeGroups:
+  - name: ng-1
+    instanceType: m5.large
+    desiredCapacity: 2
+    volumeSize: 80
+
+availabilityZones:    
+    - us-east-1a
+    - us-east-1b
+    - us-east-1c

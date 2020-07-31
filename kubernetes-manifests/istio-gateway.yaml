@@ -12,6 +12,15 @@ spec:
       protocol: HTTP
     hosts:
     - "*"
+  - port:
+      number: 443
+      name: https
+      protocol: HTTPS
+    tls:
+      mode: SIMPLE
+      credentialName: tls-secret
+    hosts:
+    - skaffold-demo.uncomn.io
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
