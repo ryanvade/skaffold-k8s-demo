@@ -11,6 +11,10 @@ managedNodeGroups:
     instanceType: m5.large
     desiredCapacity: 2
     volumeSize: 80
+    iam:
+      withAddonPolicies:
+        autoScaler: true
+        ebs: true
 
 availabilityZones:    
     - us-east-1a
