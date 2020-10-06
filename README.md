@@ -1,5 +1,7 @@
 # Skaffold K8S Demo
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a2b4d922f376483e95ad78aea9823821)](https://app.codacy.com/gh/ryanvade/skaffold-k8s-demo?utm_source=github.com&utm_medium=referral&utm_content=ryanvade/skaffold-k8s-demo&utm_campaign=Badge_Grade)
+
 ## Setup
 
 1.  Install [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/)
